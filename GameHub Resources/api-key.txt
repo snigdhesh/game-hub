@@ -1,0 +1,5 @@
+site: rawg.io/apidocs
+email: fuerstdoeq@getnada.com
+username: fuerstdoeq
+password: Le@rnRe@ct1
+api-key: 0c8bec16e9e241cca20958d0a2ef7ab9
