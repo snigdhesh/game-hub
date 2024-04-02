@@ -12,12 +12,10 @@ function GameGrid() {
   return (
     <>
       <Text>{error}</Text>
-      <SimpleGrid columns={{
-        base: 5,
-        sm: 1,
-        md: 3,
-        lg: 5,
-      }} padding={20}>
+      <SimpleGrid 
+        columns={{sm: 1,md: 2,lg: 3, xl: 5}}
+        spacing={10}
+      >
         {isLoading && skeletons.map(skeleton =>
           // We used react children concept here
           <GameCardContainer>
