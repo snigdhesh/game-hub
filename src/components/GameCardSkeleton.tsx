@@ -4,11 +4,12 @@ import { Card, CardBody, HStack, Heading, Image, Skeleton, SkeletonText } from '
 export default function GameCardSkeleton() {
     return (
         <>
-            <Card width={300} height={400} margin={5} overflow="hidden">
-                <CardBody>
-                    <Image />
-                    <SkeletonText />
-                </CardBody>
+            <Card margin={5} overflow="hidden">
+                <Skeleton height={200}>
+                    <CardBody>
+                        <SkeletonText />
+                    </CardBody>
+                </Skeleton>
             </Card>
         </>
     )
