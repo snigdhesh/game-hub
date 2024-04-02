@@ -17,6 +17,7 @@ const useGames = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    //common mistake: You may create controller object, outside of useEffect() method
     const controller = new AbortController();
 
     apiClient
@@ -24,11 +25,13 @@ const useGames = () => {
       .then((res) => setGames(res.data.results))
       .catch((err) => {
         if(err instanceof CanceledError) return;
+        //common mistake: You may just setError with err object, instead of err.message
         setError(err.message)
       });
 
       //This will cancel the request if we move away from component
       //This is helpful to skip unnecessary calls to backend
+      //common mistake: You may just return "controller.abort()" instead of arrow function.
       return ()=> controller.abort(); 
   }, []);
 
