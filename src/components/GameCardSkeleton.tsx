@@ -4,7 +4,7 @@ import { Card, CardBody, HStack, Heading, Image, Skeleton, SkeletonText } from '
 export default function GameCardSkeleton() {
     return (
         <>
-            <Card width={300} height={300} margin={5} overflow="hidden">
+            <Card width={300} height={400} margin={5} overflow="hidden">
                 <CardBody>
                     <Image />
                     <SkeletonText />
