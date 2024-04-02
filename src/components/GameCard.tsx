@@ -15,7 +15,7 @@ const getPlatforms = (game: Game) => {
 
 export default function GameCard({ game }: GameCardProps) {
   return (
-    <Card key={game.id} margin={5} overflow="hidden">
+    <Card width={300} height={300} key={game.id} margin={5} overflow="hidden">
       <Image src={getCroppedImageURL(game.background_image)} />
       <CardBody>
         <Heading fontSize="xl">{game.name}</Heading>
