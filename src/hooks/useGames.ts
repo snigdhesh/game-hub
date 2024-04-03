@@ -1,5 +1,5 @@
+import { GameQuery } from "../App";
 import useData from "./useData";
-import { Genre } from "./useGenres";
 
 export interface Platform {
   id: number;
@@ -16,17 +16,17 @@ export interface Game {
 }
 
 
-const useGames = (selectedGenre: Genre | null, selectedPlatform: Platform | null) => {
+const useGames = (gameQuery: GameQuery) => {
   return useData<Game>("/games",
     //This is the AxiosRequestConfig object. It has many default properties out of which "params" is one of them.
     {
       params: {
-        genres: selectedGenre?.id,
-        platforms: selectedPlatform?.id
+        genres: gameQuery.genre?.id,
+        platforms: gameQuery.platform?.id
       }
     },
     //These parameters are list of dependencies used in useEffect()
-    [selectedGenre?.id, selectedPlatform?.id]);
+    [gameQuery]);
 };
 
 export default useGames;
