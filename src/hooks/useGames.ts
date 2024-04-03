@@ -24,7 +24,8 @@ const useGames = (gameQuery: GameQuery) => {
         //These attributes/keys are from API documenation.
         genres: gameQuery.genre?.id,
         platforms: gameQuery.platform?.id,
-        ordering: gameQuery.sortOrder?.value
+        ordering: gameQuery.sortOrder?.value,
+        search: gameQuery.searchText
       }
     },
     //These parameters are list of dependencies used in useEffect()
