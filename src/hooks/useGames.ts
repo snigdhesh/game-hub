@@ -21,8 +21,10 @@ const useGames = (gameQuery: GameQuery) => {
     //This is the AxiosRequestConfig object. It has many default properties out of which "params" is one of them.
     {
       params: {
+        //These attributes/keys are from API documenation.
         genres: gameQuery.genre?.id,
-        platforms: gameQuery.platform?.id
+        platforms: gameQuery.platform?.id,
+        ordering: gameQuery.sortOrder?.value
       }
     },
     //These parameters are list of dependencies used in useEffect()
