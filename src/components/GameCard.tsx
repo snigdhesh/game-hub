@@ -18,11 +18,11 @@ export default function GameCard({ game }: GameCardProps) {
     <Card key={game.id} margin={5} overflow="hidden">
       <Image src={getCroppedImageURL(game.background_image)} />
       <CardBody>
-        <Heading fontSize="xl">{game.name}</Heading>
         <HStack justifyContent="space-between">
           <PlatformIconList platforms={getPlatforms(game)} />
           <CriticScore score={game.metacritic} />
         </HStack>
+        <Heading fontSize="xl">{game.name}</Heading>
       </CardBody>
     </Card>
   )
