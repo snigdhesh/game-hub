@@ -7,7 +7,7 @@ interface Props {
 
 function GameHeading({ gameQuery }: Props) {
 
-    const heading = `${gameQuery.platform?.name || ''} ${gameQuery.genre?.name || ''} Games`
+    const heading = `${gameQuery.platform?.name || ''} ${gameQuery.genre?.name || ''} Games: Developed by Naga Vadlapudi`
     return (<>
         <Heading marginY={5} fontSize="5xl" paddingX={5} as="h1">{heading}</Heading >
     </>)
