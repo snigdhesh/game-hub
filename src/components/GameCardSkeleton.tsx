@@ -1,4 +1,4 @@
-import { Card, CardBody, HStack, Heading, Image, Skeleton, SkeletonText } from '@chakra-ui/react'
+import { Card, CardBody, Skeleton, SkeletonText } from '@chakra-ui/react'
 
 
 export default function GameCardSkeleton() {
