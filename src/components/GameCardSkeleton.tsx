@@ -5,7 +5,7 @@ export default function GameCardSkeleton() {
     return (
         <>
             <Card margin={5} overflow="hidden">
-                <Skeleton height={200}>
+                <Skeleton height={300}>
                     <CardBody>
                         <SkeletonText />
                     </CardBody>
