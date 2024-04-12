@@ -9,7 +9,7 @@ interface FetchResponse<T> {
     results: T[];
 }
 
-const useGenreData = <T>(endpoint: string) => {
+const useGenreData = (endpoint: string) => {
     const getGenres = () => apiClient.get<FetchResponse<Genre>>(endpoint).then(res => res.data)
 
     const { data, error, isLoading } = useQuery({
