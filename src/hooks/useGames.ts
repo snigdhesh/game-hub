@@ -4,6 +4,7 @@ import { GameQuery } from "../App";
 import { FetchResponse } from "../services/api-client";
 import gameService from "../services/gameService";
 import { Platform } from "./usePlatforms";
+import ms from "ms";
 
 export interface Game {
   id: number;
@@ -34,7 +35,7 @@ const useGames = (gameQuery: GameQuery) => {
       return lastPage.next ? allPages.length + 1 : undefined
     },
     queryFn: ({ pageParam }) => fetchGames(pageParam),
-    staleTime: 24 * 60 * 60 * 1000 //24hrs
+    staleTime: ms('24h') //24hrs
   })
 }
 
