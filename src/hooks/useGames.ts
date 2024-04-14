@@ -20,8 +20,8 @@ const useGames = (gameQuery: GameQuery) => {
   const fetchGames = (pageParam: number) => gameService.getAll({
     params: {
       //These attributes/keys are from API documenation.
-      genres: gameQuery.genre?.id,
-      parent_platforms: gameQuery.platform?.id,
+      genres: gameQuery.genreId,
+      parent_platforms: gameQuery.platformId,
       ordering: gameQuery.sortOrder?.value,
       search: gameQuery.searchText,
       page: pageParam
