@@ -2,6 +2,8 @@ import axios, { AxiosRequestConfig } from "axios";
 
 export interface FetchResponse<T> {
     count: number;
+    next: string | null;
+    previous: string | null;
     results: T[];
 }
 
@@ -15,14 +17,14 @@ const axiosInstance = axios.create({
 })
 
 class APIClient<T>{
-    
+
     endpoint: string
 
-    constructor(endpoint:string){
-        this.endpoint=endpoint;
+    constructor(endpoint: string) {
+        this.endpoint = endpoint;
     }
 
-    getAll  = (config:AxiosRequestConfig) => axiosInstance.get<FetchResponse<T>>(this.endpoint,config).then(res=>res.data)    
+    getAll = (config: AxiosRequestConfig) => axiosInstance.get<FetchResponse<T>>(this.endpoint, config).then(res => res.data)
 
 }
 
