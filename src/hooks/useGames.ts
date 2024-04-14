@@ -1,5 +1,7 @@
+
+import { useQuery } from "@tanstack/react-query";
 import { GameQuery } from "../App";
-import useData from "./useData";
+import apiClient, {FetchResponse} from "../services/api-client";
 
 export interface Platform {
   id: number;
@@ -17,21 +19,26 @@ export interface Game {
   rating: number; //It's a float number
 }
 
-
 const useGames = (gameQuery: GameQuery) => {
-  return useData<Game>("/games",
-    //This is the AxiosRequestConfig object. It has many default properties out of which "params" is one of them.
-    {
-      params: {
-        //These attributes/keys are from API documenation.
-        genres: gameQuery.genre?.id,
-        platforms: gameQuery.platform?.id,
-        ordering: gameQuery.sortOrder?.value,
-        search: gameQuery.searchText
-      }
-    },
-    //These parameters are list of dependencies used in useEffect()
-    [gameQuery]);
-};
+
+  const fetchGames = () => apiClient.get<FetchResponse<Game>>('/games', {
+    params: {
+      //These attributes/keys are from API documenation.
+      genres: gameQuery.genre?.id,
+      parent_platforms: gameQuery.platform?.id,
+      ordering: gameQuery.sortOrder?.value,
+      search: gameQuery.searchText
+    }
+  }).then(res => res.data)
+
+  const { data, error, isLoading } = useQuery<FetchResponse<Game>, Error>({
+    queryKey: ['games', gameQuery],
+    queryFn: fetchGames
+  })
+
+  return { data, error, isLoading }
+}
+
+
 
 export default useGames;
