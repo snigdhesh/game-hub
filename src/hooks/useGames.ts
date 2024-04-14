@@ -39,6 +39,7 @@ const useGames = (gameQuery: GameQuery) => {
       return lastPage.next ? allPages.length + 1 : undefined
     },
     queryFn: ({ pageParam }) => fetchGames(pageParam),
+    staleTime: 24 * 60 * 60 * 1000 //24hrs
   })
 }
 
