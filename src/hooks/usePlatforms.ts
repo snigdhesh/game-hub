@@ -12,11 +12,11 @@ export interface Platform {
 
 const usePlatforms = () => {
 
-  const { data, error, isLoading } = useQuery<FetchResponse<Platform>,Error>({
+  const { data, error, isLoading } = useQuery<FetchResponse<Platform>, Error>({
     queryKey: ['platforms'],
     queryFn: platformService.getAll,
     staleTime: 24 * 60 * 60 * 1000,
-    initialData: { count: platforms.length, next:"", previous: "", results: platforms }
+    initialData: platforms
   })
 
   return { data, error, isLoading }
