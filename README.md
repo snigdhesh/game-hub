@@ -21,3 +21,7 @@ const example = {
     staleTime: ms('24h')
 }
 ```
+
+
+## How to install zustand?  
+`npm i zustand@4.3.7`

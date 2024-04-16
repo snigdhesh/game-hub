@@ -1,18 +1,15 @@
 import { Heading } from "@chakra-ui/react";
-import { GameQuery } from "../App";
 import useGenre from "../hooks/useGenre";
 import usePlatforms from "../hooks/usePlatforms";
+import useGameQueryStore from "../stores/store";
 
-interface Props {
-    gameQuery: GameQuery
-}
+function GameHeading() {
+    const genreId = useGameQueryStore(s => s.gameQuery.genreId)
+    const genre = useGenre(genreId);
 
-function GameHeading({ gameQuery }: Props) {
-
-    const genre = useGenre(gameQuery.genreId);
-    
+    const platformId = useGameQueryStore(s => s.gameQuery.platformId) 
     const { data: platforms } = usePlatforms();
-    const platform = platforms?.results.find(platform => platform.id === gameQuery.platformId)
+    const platform = platforms?.results.find(platform => platform.id === platformId)
 
     const heading = `${platform?.name || ''} ${genre?.name || ''} Games: Developed by Naga Vadlapudi`
     return (<>

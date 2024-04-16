@@ -1,10 +1,10 @@
 
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { GameQuery } from "../App";
+import ms from "ms";
 import { FetchResponse } from "../services/api-client";
 import gameService from "../services/gameService";
 import { Platform } from "./usePlatforms";
-import ms from "ms";
+import useGameQueryStore from "../stores/store";
 
 export interface Game {
   id: number;
@@ -16,8 +16,8 @@ export interface Game {
   rating: number; //It's a float number
 }
 
-const useGames = (gameQuery: GameQuery) => {
-
+const useGames = () => {
+  const gameQuery = useGameQueryStore(s => s.gameQuery);
   const fetchGames = (pageParam: number) => gameService.getAll({
     params: {
       //These attributes/keys are from API documenation.

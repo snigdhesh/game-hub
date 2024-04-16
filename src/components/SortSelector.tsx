@@ -1,17 +1,16 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react"
 import { BsChevronDown } from "react-icons/bs"
+import useGameQueryStore from "../stores/store";
 
 export interface SortOrder{
     value: string;
     label: string;
 }
 
-interface Props {
-    onSelectSortOrder: (sortOrder: SortOrder) => void;
-    selectedSortOrder: SortOrder
-}
+function SortSelector() {
+    const selectedSortOrder = useGameQueryStore(s => s.gameQuery.sortOrder)
+    const setSortOrder = useGameQueryStore(s => s.setSortOrder)
 
-function SortSelector({ onSelectSortOrder, selectedSortOrder}: Props) {
     const sortOrders = [
         //All these values are from API documenation, labels are for display purposes only.
         //We add hyphen to values, cause API documenation says to add it, if you want to sort it in reverse order. (which is latest first)
@@ -37,7 +36,7 @@ function SortSelector({ onSelectSortOrder, selectedSortOrder}: Props) {
                         key={sortOrder.value}
                         value={sortOrder.value}
                         onClick={() => {
-                            onSelectSortOrder(sortOrder)
+                            setSortOrder(sortOrder)
                         }}>
                         {sortOrder.label}
                     </MenuItem>)}
