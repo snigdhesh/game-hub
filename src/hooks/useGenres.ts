@@ -3,12 +3,6 @@ import genreService from "../services/genreService";
 import { genres } from "../data/genres";
 import ms from "ms";
 
-export interface Genre {
-    id: number;
-    name: string;
-    image_background: string;
-}
-
 const useGenres = () => {
 
     const { data, error, isLoading } = useQuery({

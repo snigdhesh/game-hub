@@ -1,5 +1,5 @@
 import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react"
-import { Game } from "../hooks/useGames"
+import { Game } from "../entities/Game"
 import PlatformIconList from "./PlatformIconList"
 import CriticScore from "./CriticScore"
 import getCroppedImageURL from "../services/image-url"
@@ -25,8 +25,8 @@ export default function GameCard({ game }: GameCardProps) {
           <CriticScore score={game.metacritic} />
         </HStack>
         <Heading fontSize="xl">
-          <Link to={'/games/'+game.slug}>
-          {game.name}
+          <Link to={'/games/' + game.slug}>
+            {game.name}
           </Link>
           <Emoji rating={game.rating_top}></Emoji>
         </Heading>
