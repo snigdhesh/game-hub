@@ -14,6 +14,8 @@ export interface Game {
   metacritic: number;
   rating_top: number; //It's a whole number
   rating: number; //It's a float number
+  slug: string;
+  description_raw: string;
 }
 
 const useGames = () => {
