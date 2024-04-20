@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from '@chakra-ui/react'
+import { Box, Heading } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
 interface Props{
@@ -8,9 +8,9 @@ interface Props{
 
 const DefinitionItem = ({term,children}:Props) => {
   return (
-    <Box marginTop={5}>
-        <Heading fontSize={20} color={"gray.600"}>{term}</Heading>
-        <Text>{children}</Text>
+    <Box marginTop={5} >
+        <Heading as="dt" fontSize={20} color={"gray.600"}>{term}</Heading>
+        <dd>{children}</dd>
     </Box>
   )
 }
