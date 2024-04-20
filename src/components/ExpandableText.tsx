@@ -1,5 +1,4 @@
 import { Button } from '@chakra-ui/react';
-import React, { ReactNode, useState } from 'react'
 
 interface Props {
   text: string;
