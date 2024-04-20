@@ -4,7 +4,7 @@ import { platforms } from "../data/platforms";
 import platformService from "../services/platformService";
 import { FetchResponse } from "../services/api-client";
 import ms from "ms";
-import { Platform } from "../entities/Platform";
+import Platform from "../entities/Platform";
 
 const usePlatforms = () => {
 
